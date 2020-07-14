@@ -11,14 +11,17 @@
 | A complete guide on routing is available here.
 | http://adonisjs.com/docs/4.1/routing
 |
-*/
 
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
+
 const Route = use('Route')
 
 Route.get('/', () => {
   return { greeting: 'BONJOUR IBRAHIM OUAMDAOGO' }
 })
+
+Route.post('user', 'UserController.store')
+Route.get('user', 'UserController.store')
 
 Route.group(() => {
   
@@ -33,17 +36,6 @@ Route.get('user/register', () => {
   }
 })
 }).prefix("api/v1")
-
-Route.group(() => {
-  
-Route.get('menu/diario', () => {
-  return {
-    message:"Menu diario escala",
-    primerPlato:"lista de primer plato escala",segundoPlato: "lista de segundo Plato escala"
-  }
-})
-
-}).prefix("api/v2")
 
 
 
